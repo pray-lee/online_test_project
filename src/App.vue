@@ -14,6 +14,7 @@ export default {
     if (type == 1) {
       this.$router.push({ path: '/' })
     } else {
+      console.log(1)
       this.$router.push({ path: '/record' })
     }
   }
