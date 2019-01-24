@@ -76,7 +76,6 @@ export default {
       if (this.isClicked) {
         userAnswer.push(this.answer)
       } else {
-        alert('没选题')
         // if (this.gameData[0])
         //     userAnswer.push(this.gameData[this.count-1].options[0].optionId)
       }
@@ -87,7 +86,10 @@ export default {
     },
     //点击切换问题选项
     _changeView() {
-      alert(this.answer)
+      if(this.answer == ''){
+        alert('请选题')
+        return
+      }
       this.statusArr = []
       //计数判断当前点击的是不是最后一个按钮，如果是，显示提交的按钮文字
       this.count++;

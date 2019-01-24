@@ -1,18 +1,43 @@
 <template>
-  <div class="achievement">
+  <div class="achievement" v-if="grade">
     <h1>答题成就</h1>
     <div class="content">
-      <div class="item qingtong"></div>
-      <div class="item huangjin"></div>
-      <div class="item baijin"></div>
-      <div class="item zuanshi"></div>
-      <div class="item wangzhe"></div>
+      <div class="item qingtong" :class="{active: showGrade==='qingtong'}"></div>
+      <div class="item huangjin" :class="{active: showGrade==='huangjin'}"></div>
+      <div class="item baijin" :class="{active: showGrade==='baijin'}"></div>
+      <div class="item zuanshi" :class="{active: showGrade==='zuanshi'}"></div>
+      <div class="item wangzhe" :class="{active: showGrade==='wangzhe'}"></div>
     </div>
-  </div> 
+  </div>
 </template>
 <script>
 export default {
-  name: 'achievement'
+  name: 'achievement',
+  props: ['grade'],
+  data() {
+    return {
+      showGrade: ''
+    }
+  },
+  mounted() {
+    console.log(this.grade)
+    switch (this.grade) {
+      case '黄金飞手':
+        this.showGrade = 'huangjin'
+        break
+      case '青铜飞手':
+        this.showGrade = 'qingtong'
+        break
+      case '铂金飞手':
+        this.showGrade = 'baijin'
+        break
+      case '钻石飞手':
+        this.showGrade = 'zuanshi'
+        break
+      case '王者飞手':
+        this.showGrade = 'wangzhe'
+    }
+  }
 }
 </script>
 <style scoped>

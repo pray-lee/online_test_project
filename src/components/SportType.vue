@@ -2,19 +2,19 @@
   <div class="hello">
     <div class="home-option-area">
       <h1>运动类型</h1>
-      <div id="sport-type" v-if="subjectArr && subjectArr.length > 0">
+      <div id="sportType" v-if="subjectArr && subjectArr.length > 0">
         <div v-for="item in subjectArr" :key="item.mid" :class="{active: item.mid === subjectCount}" @click="activate(item.mid)">{{item.subject_name}}</div>
       </div>
     </div>
     <div id="line"></div>
     <div class="home-option-area">
       <h1>试题难度</h1>
-      <div id="sport-type" v-if="levelArr && levelArr.length > 0">
+      <div id="level" v-if="levelArr && levelArr.length > 0">
         <div v-for="item in levelArr" :key="item.id" @click="activate1(item.id)" :class="{active: item.id === levelCount}">{{item.name}}</div>
       </div>
     </div>
     <div id="line"></div>
-    <Achievement></Achievement>
+    <Achievement v-if="grade" :grade="grade"></Achievement>
       <BigButton title="开始评测" class="start" @click.native="getTestData"></BigButton>
   </div>
 </template>
@@ -27,7 +27,7 @@
   export default {
     name: 'SportType',
     components: { Achievement, BigButton },
-    props: ['subjectArr', 'levelArr'],
+    props: ['subjectArr', 'levelArr', 'grade'],
     data() {
       return {
         subjectCount:0,
@@ -78,14 +78,14 @@
     color: #333
   }
 
-  #sport-type {
+  #sportType, #level {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
     padding: 0 .4rem /* 30/75 */
   }
 
-  #sport-type div {
+  #sportType div, #level div {
     width: 2.773333rem /* 208/75 */;
     height: .866667rem /* 65/75 */;
     line-height: .866667rem /* 65/75 */;
@@ -101,7 +101,7 @@
     white-space: initial;
   }
 
-  #sport-type div.active {
+  #sportType div.active, #level div.active{
     background: #00b4fb;
     color: #fff
   }

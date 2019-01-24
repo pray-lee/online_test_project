@@ -11,6 +11,7 @@ export default {
   created () {
     let type = getQueryParams('type')
     Listener.token = getQueryParams('token')
+    Listener.userId = getQueryParams('userId')
     if (type == 1) {
       this.$router.push({ path: '/' })
     } else {
