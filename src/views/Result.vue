@@ -1,5 +1,5 @@
 <template>
-  <div id="result" v-if="data">
+  <div id="result" v-if="!!data">
     <div class="top">
       <p class="score">得分：{{data.myScore}}/{{data.totalScore}}</p>
       <p class="finish-time">完成时间：{{data.endTime}}</p>

@@ -1,5 +1,6 @@
 <template>
   <div id="question-wrapper">
+    <div id="mask" v-show="maskShow"></div>
     <Count></Count>
     <div class="questions-content" v-if="gameData">
         <Question class="question-area" v-for="(item, index) of gameData" v-show="statusArr[index]" ref="ele" :title="item.body" :options="item.options" :qkey="item.questionId" :type="item.type" @change="receiveValue"></Question>
@@ -26,6 +27,7 @@ export default {
       answer: '',
       //加一个标志，判断进入答题页面有没有点击过,如果没有，取第一个选项
       isClicked: false,
+      maskShow: false,
       postData: {
         subjectId: Listener.subject_id,
         startTime: '',
@@ -105,8 +107,10 @@ export default {
         Listener.postData = this.formateSubmitData(this.postData);
         let _this = this;
         (async function() {
-          _this.$router.push({path: '/result'})
+          _this.maskShow = true
           Listener.resultData = await getResult({token:Listener.token, postData:Listener.postData})
+          _this.maskShow = false
+          _this.$router.push({path: '/result'})
         })()
       }
       //进入下一页的时候重置点击标志
@@ -166,6 +170,15 @@ export default {
   color: #fff;
   font-size: .4rem
 }
+  #mask{
+    position:fixed;
+    z-index:999999;
+    width:100%;
+    height:100%;
+    background: #f1f1f1;
+    left:0;
+    top:0
+  }
 </style>
 
 
