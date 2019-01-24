@@ -1,5 +1,5 @@
 <template>
-  <div class="achievement" v-if="grade">
+  <div class="achievement" v-if="grade != ''">
     <h1>答题成就</h1>
     <div class="content">
       <div class="item qingtong" :class="{active: showGrade==='qingtong'}"></div>
@@ -21,20 +21,21 @@ export default {
   },
   mounted() {
     switch (this.grade) {
-      case '黄金飞手':
+      case '2':
         this.showGrade = 'huangjin'
         break
-      case '青铜飞手':
+      case '1':
         this.showGrade = 'qingtong'
         break
-      case '铂金飞手':
+      case '3':
         this.showGrade = 'baijin'
         break
-      case '钻石飞手':
+      case '4':
         this.showGrade = 'zuanshi'
         break
-      case '王者飞手':
+      case '5':
         this.showGrade = 'wangzhe'
+        break
     }
   }
 }
@@ -57,27 +58,47 @@ h1{
 }
 .item{
   flex: 0 0 auto;
-  width: 1.373333rem /* 103/75 */;
-  height: 1.026667rem /* 77/75 */;
+  width: 1.333rem /* 103/75 */;
+  height: 1.333rem /* 77/75 */;
+}
+.item.qingtong.active{
+  background:url(../assets/images/1.png) center center no-repeat;
+  background-size: 1.333rem 1.333rem;
+}
+.item.huangjin.active{
+  background:url(../assets/images/2.png) center center no-repeat;
+  background-size: 1.333rem 1.333rem;
+}
+.item.baijin.active{
+  background:url(../assets/images/3.png) center center no-repeat;
+  background-size: 1.333rem 1.333rem;
+}
+.item.zuanshi.active{
+  background:url(../assets/images/4.png) center center no-repeat;
+  background-size: 1.333rem 1.333rem;
+}
+.item.wangzhe.active{
+  background:url(../assets/images/5.png) center center no-repeat;
+  background-size: 1.333rem 1.333rem;
 }
 .item.qingtong{
-  background:url(../assets/images/1.png) center center no-repeat;
-  background-size: 1.373333rem 1.026667rem;
+  background:url(../assets/images/noactive/1.png) center center no-repeat;
+  background-size: 1.333rem 1.333rem;
 }
 .item.huangjin{
-  background:url(../assets/images/2.png) center center no-repeat;
-  background-size: 1.373333rem 1.026667rem;
+  background:url(../assets/images/noactive/2.png) center center no-repeat;
+  background-size: 1.333rem 1.333rem;
 }
 .item.baijin{
-  background:url(../assets/images/3.png) center center no-repeat;
-  background-size: 1.373333rem 1.026667rem;
+  background:url(../assets/images/noactive/3.png) center center no-repeat;
+  background-size: 1.333rem 1.333rem;
 }
 .item.zuanshi{
-  background:url(../assets/images/4.png) center center no-repeat;
-  background-size: 1.373333rem 1.026667rem;
+  background:url(../assets/images/noactive/4.png) center center no-repeat;
+  background-size: 1.333rem 1.333rem;
 }
 .item.wangzhe{
-  background:url(../assets/images/5.png) center center no-repeat;
-  background-size: 1.373333rem 1.026667rem;
+  background:url(../assets/images/noactive/5.png) center center no-repeat;
+  background-size: 1.333rem 1.333rem;
 }
 </style>

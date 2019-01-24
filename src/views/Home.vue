@@ -40,7 +40,7 @@ export default {
     async getGrade() {
       // 获取用户等级
       let userData = await getAchievement(Listener.token, Listener.userId)
-      this.grade = userData.grade
+      this.grade = userData.gradeType
     }
   }
 }
