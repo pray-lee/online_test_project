@@ -1,6 +1,9 @@
 <template>
   <div class="hello">
     <div class="home-option-area">
+      <h1 style="text-align:right" @click="goRecord">评测记录 ></h1>
+    </div>
+    <div class="home-option-area">
       <h1>运动类型</h1>
       <div id="sportType" v-if="subjectArr && subjectArr.length > 0">
         <div v-for="item in subjectArr" :key="item.mid" :class="{active: item.mid === subjectCount}" @click="activate(item.mid)">{{item.subject_name}}</div>
@@ -51,6 +54,9 @@
         let data = {token: Listener.token, subjectId: Listener.subject_id, difficulty: Listener.level_id}
         Listener.data = await getTest(data)
         this.$router.push({path: '/game'})
+      },
+      goRecord() {
+        this.$router.push({path: '/record'})
       }
     }
   }

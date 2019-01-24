@@ -75,9 +75,6 @@ export default {
       let userAnswer = []
       if (this.isClicked) {
         userAnswer.push(this.answer)
-      } else {
-        // if (this.gameData[0])
-        //     userAnswer.push(this.gameData[this.count-1].options[0].optionId)
       }
       this.postData.answerList.push({
         questionId: questionId,
@@ -87,7 +84,7 @@ export default {
     //点击切换问题选项
     _changeView() {
       if(this.answer == ''){
-        alert('请选题')
+        alert('请选择答案')
         return
       }
       this.statusArr = []
@@ -108,8 +105,8 @@ export default {
         Listener.postData = this.formateSubmitData(this.postData);
         let _this = this;
         (async function() {
-          Listener.resultData = await getResult({token:Listener.token, postData:Listener.postData})
           _this.$router.push({path: '/result'})
+          Listener.resultData = await getResult({token:Listener.token, postData:Listener.postData})
         })()
       }
       //进入下一页的时候重置点击标志

@@ -31,7 +31,7 @@ export default {
   border-bottom: .013333rem /* 1/75 */ solid #ccc;
 }
 #resultQ .title{
-  height: .693333rem /* 52/75 */;
+  /*height: .693333rem !* 52/75 *!;*/
   line-height: .693333rem /* 52/75 */;
   font-size: .35rem;
   font-weight: bold

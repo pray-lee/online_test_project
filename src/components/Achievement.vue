@@ -20,7 +20,6 @@ export default {
     }
   },
   mounted() {
-    console.log(this.grade)
     switch (this.grade) {
       case '黄金飞手':
         this.showGrade = 'huangjin'

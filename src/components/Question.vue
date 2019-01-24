@@ -5,13 +5,13 @@
     <div class="question" v-for="(option, index) in options">
       <div class="check-wrapper" v-if="type===1">
         <input type="radio" :id="option.optionId" :value="option.optionId" :name="qkey" @change="$emit('change', {type:1,value:option.optionId})">
-        <label :for="option.optionId"></label>
+        <span class="checkLabel"></span>
       </div>
       <div class="check-wrapper" v-if="type===2">
         <input type="checkbox" :id="option.optionId" :value="option.optionId" :name="qkey" @change="$emit('change', {type:2,value:option.optionId})">
-        <label :for="option.optionId"></label>
+        <span class="checkLabel"></span>
       </div>
-      <div class="content" v-html="option.optionName"></div>
+      <label :for="option.optionId" class="content" v-html="option.optionName"></label>
     </div>
   </div>
 </template>
@@ -59,6 +59,7 @@ export default {
   opacity: 0;
 }
 .content{
+  display:block;
   padding: .2rem 0;
   margin-left: 1.3rem;
   margin-right: .8rem
@@ -75,7 +76,7 @@ export default {
 .content > :last-child{
   display:none
 }
-.question label{
+.question .checkLabel{
   display:block;
   width:100%;
   height: 100%;
@@ -85,11 +86,11 @@ export default {
   border-radius:50%;
   border: .023333rem /* 1/75 */ solid #ccc
 }
-.question input:checked + label{
+.question input:checked + .checkLabel{
   border:0;
   background:#00b4fb;
 }
-.question input:checked + label::after{
+.question input:checked + .checkLabel::after{
   content: '';
   display:block;
   width:.153333rem /* 10/75 */;
