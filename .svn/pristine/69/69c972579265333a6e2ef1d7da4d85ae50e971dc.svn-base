@@ -1,5 +1,5 @@
 <template>
-  <div id="result" v-if="!!data">
+  <div id="result" v-if="data">
     <div class="top">
       <p class="score">得分：{{data.myScore}}/{{data.totalScore}}</p>
       <p class="finish-time">完成时间：{{data.endTime}}</p>
@@ -59,7 +59,7 @@ export default {
 }
 #result h3{
   text-align: center;
-  font-size: .45rem;
+  font-size: .35rem;
   color:#333;
   height: .733333rem /* 55/75 */;
   line-height: .733333rem /* 55/75 */;

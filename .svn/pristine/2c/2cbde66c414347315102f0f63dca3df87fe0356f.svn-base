@@ -62,7 +62,7 @@ export default {
   transform: translateY(-50%);
   font-size: .35rem;
   font-weight: 200;
-  color: #8f8f8f
+  color: #c8c8c8
 }
 .score {
   font-size: 0.35rem;

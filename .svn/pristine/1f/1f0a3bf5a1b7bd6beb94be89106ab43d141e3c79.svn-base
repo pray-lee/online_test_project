@@ -59,7 +59,7 @@ export default {
 }
 #result h3{
   text-align: center;
-  font-size: .45rem;
+  font-size: .35rem;
   color:#333;
   height: .733333rem /* 55/75 */;
   line-height: .733333rem /* 55/75 */;
