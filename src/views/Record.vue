@@ -1,6 +1,7 @@
 <template>
   <div id="record">
-    <div class="record-item" v-for="item of list">
+    <div id="noList" v-if="list">暂无数据...</div>
+    <div class="record-item" v-else v-for="item of list">
       <div class="item-wrapper">
       <p class="score">
         <span>得分：{{item.myScore}}分</span>
@@ -47,6 +48,14 @@ export default {
 #record {
   background: #fff;
   color: #333;
+}
+#noList{
+  width:100vw;
+  height:100vh;
+  text-align: center;
+  line-height: 100vh;
+  color:#c0c0c0;
+  font-size: .5rem
 }
 .record-item{
   border-bottom: .013333rem /* 1/75 */ solid #ccc

@@ -69,7 +69,8 @@
   }
 
   .start {
-    margin-top: 1.333333rem /* 100/75 */
+    margin-top: 1.333333rem; /* 100/75 */
+    margin-bottom: 1.333333rem /* 100/75 */
   }
 
   .home-option-area {
