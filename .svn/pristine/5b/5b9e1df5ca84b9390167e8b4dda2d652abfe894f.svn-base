@@ -50,7 +50,7 @@ h1{
 }
 .item{
   flex: 0 0 auto;
-  width: 2.133rem;
+  width: 2.133rem /* 103/75 */;
   height: 2.133rem /* 77/75 */;
   margin: 0 .15rem
 }

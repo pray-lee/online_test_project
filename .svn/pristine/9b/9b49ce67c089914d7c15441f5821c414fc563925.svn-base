@@ -1,10 +1,6 @@
 <template>
   <div id="record">
-    <div id="noList" v-if="list.length <= 0">
-      <section class="noList-bg">
-        <p>暂无数据...</p>
-      </section>
-    </div>
+    <div id="noList" v-if="list">暂无数据...</div>
     <div class="record-item" v-else v-for="item of list">
       <div class="item-wrapper">
       <p class="score">
@@ -57,21 +53,9 @@ export default {
   width:100vw;
   height:100vh;
   text-align: center;
-}
-#noList .noList-bg{
-  background: url(../assets/images/noList.png) center center no-repeat;
-  background-size: 2.667rem 1.451rem;
-  width: 2.667rem;
-  height: 1.451rem;
-  position:absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-.noList-bg p{
+  line-height: 100vh;
   color:#c0c0c0;
-  font-size: .4rem;
-  line-height: 23vh;
+  font-size: .5rem
 }
 .record-item{
   border-bottom: .013333rem /* 1/75 */ solid #ccc
